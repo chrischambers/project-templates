@@ -15,8 +15,6 @@
   (:require
    [mulog-events]
    [com.brunobonacci.mulog :as μ]
-   [portal]
-   [portal.api :as inspect]
    [clojure.tools.namespace.repl :as namespace]))
 
 ;; ---------------------------------------------------------
@@ -70,22 +68,4 @@
 (μ/log ::dev-user-ns
            :message "Example event from user namespace"
            :ns (ns-publics *ns*))
-;; ---------------------------------------------------------
-
-;; ---------------------------------------------------------
-;; Portal Data Inspector
-(comment
-  ;; Open a portal inspector in browser window - light theme
-  ;; (inspect/open {:portal.colors/theme :portal.colors/solarized-light})
-
-  (inspect/clear) ; Clear all values in portal window (allows garbage collection)
-
-  (remove-tap #'inspect/submit) ; Remove portal from `tap>` sources
-
-  (inspect/close) ; Close the portal window
-
-  (inspect/docs) ; View docs locally via Portal
-
-  #_()) ; End of rich comment
-
 ;; ---------------------------------------------------------

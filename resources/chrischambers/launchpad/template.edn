@@ -30,11 +30,12 @@
  ;;   {"source-file.extension.template" "destination-file.extension"}]]
 
  :transform
- [["build" ""
+ [["bin" "bin"
+   {"launchpad"  "launchpad"}]
+  ["build" ""
    {"deps.edn.template"  "deps.edn"}]
   ["dev" "dev"
    {"mulog_events.clj" "mulog_events.clj"
-    "portal.clj" "portal.clj"
     "user.clj" "user.clj"}]
   ["src" "src/{{top/file}}"
    {"app.clj.template" "{{main/file}}.clj"}]
