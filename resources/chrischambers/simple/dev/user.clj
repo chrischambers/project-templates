@@ -10,15 +10,13 @@
 ;; - alias included in the Emacs `.dir-locals.el` file
 ;; ---------------------------------------------------------
 
-
 (ns user
   "Tools for REPL Driven Development"
   (:require
-   ;; REPL Workflow
-   [mulog-events]                      ; Event Logging
-   [com.brunobonacci.mulog :as mulog]  ; Global context & Tap publisher
+   [mulog-events]
+   [com.brunobonacci.mulog :as μ]
    [portal]
-   [portal.api :as inspect]                          ; Data inspector
+   [portal.api :as inspect]
    [clojure.tools.namespace.repl :as namespace]))
 
 ;; ---------------------------------------------------------
@@ -69,23 +67,9 @@
 ;; `mulog-events` namespace sets mulog global context for all events
 
 ;; Example mulog event message
-(mulog/log ::dev-user-ns
+(μ/log ::dev-user-ns
            :message "Example event from user namespace"
            :ns (ns-publics *ns*))
-;; ---------------------------------------------------------
-
-;; ---------------------------------------------------------
-;; Hotload libraries into running REPL
-;; `deps-*` LSP snippets to add dependency forms
-(comment
-  ;; Require for Clojure 1.11.x and earlier
-  (require '[clojure.tools.deps.alpha.repl :refer [add-libs]])
-  (add-libs '{domain/library-name {:mvn/version "1.0.0"}})
-
-  ;; Clojure 1.12.x only
-  #_(add-lib 'library-name)   ; find and add library
-  #_(sync-deps)               ; load dependencies in deps.edn (if not yet loaded)
-  #_()) ; End of rich comment
 ;; ---------------------------------------------------------
 
 ;; ---------------------------------------------------------

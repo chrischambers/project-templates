@@ -31,8 +31,7 @@
 
  :transform
  [["build" ""
-   {"build.clj.template" "build.clj"
-    "deps.edn.template"  "deps.edn"}]
+   {"deps.edn.template"  "deps.edn"}]
   ["dev" "dev"
    {"mulog_events.clj" "mulog_events.clj"
     "portal.clj" "portal.clj"
