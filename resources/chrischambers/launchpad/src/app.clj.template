@@ -1,0 +1,3 @@
+(ns {{top/ns}}.{{main/ns}}
+  (:require
+   [com.brunobonacci.mulog :as μ]))
