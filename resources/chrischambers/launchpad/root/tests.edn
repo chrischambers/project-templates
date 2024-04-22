@@ -1,13 +1,11 @@
 ;; ---------------------------------------------------------
-;; Kaocha test runner configuration
-;;
-;; Default configuration
-;; - show current config using either command:
-;;
-;; make test-config
+;; - print current config using command:
 ;;
 ;; clojure -M:test/env:test/run --print-config
-
 ;; ---------------------------------------------------------
 
-#kaocha/v1 {}
+#kaocha/v1
+{:tests           [{:id :unit
+                    :source-paths ["src"]}]
+ :plugins         [:noyoda.plugin/swap-actual-and-expected]
+ :kaocha/reporter [kaocha.report/documentation]}
