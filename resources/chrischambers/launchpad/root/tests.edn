@@ -1,5 +1,5 @@
 ;; ---------------------------------------------------------
-;; - print current config using command:
+;; Print current config using command:
 ;;
 ;; clojure -M:test/env:test/run --print-config
 ;; ---------------------------------------------------------
@@ -8,4 +8,4 @@
 {:tests           [{:id :unit
                     :source-paths ["src"]}]
  :plugins         [:noyoda.plugin/swap-actual-and-expected]
- :kaocha/reporter [kaocha.report/documentation]}
+ :reporter        [kaocha.report/documentation]}

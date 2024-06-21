@@ -7,9 +7,11 @@
  {:dev
   {:extra-paths ["test" "dev"]
    :extra-deps
-   {lambdaisland/kaocha {:mvn/version "1.88.1376"}
+   {org.clojure/tools.namespace {:mvn/version "1.4.4"}
+    org.clojure/test.check {:mvn/version "1.1.1"}
+    lambdaisland/kaocha {:mvn/version "1.88.1376"}
     kaocha-noyoda/kaocha-noyoda {:mvn/version "2019-06-03"}}
-   :jvm-opts "-XX:-OmitStackTraceInFastThrow"}
+   :jvm-opts ["-XX:-OmitStackTraceInFastThrow"]}
 
   :test/env {}
 
@@ -17,7 +19,8 @@
   ;; call with :watch? true to start file watcher and re-run tests on saved changes
   :test/run
   {:extra-paths ["test"]
-   :extra-deps {lambdaisland/kaocha {:mvn/version "1.88.1376"}
+   :extra-deps {org.clojure/test.check {:mvn/version "1.1.1"}
+                lambdaisland/kaocha {:mvn/version "1.88.1376"}
                 kaocha-noyoda/kaocha-noyoda {:mvn/version "2019-06-03"}}
    :main-opts   ["-m" "kaocha.runner"]
    :exec-fn kaocha.runner/exec-fn
