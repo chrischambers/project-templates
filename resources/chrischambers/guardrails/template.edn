@@ -33,7 +33,8 @@
  [["bin" "bin"
    {"launchpad"  "launchpad"}]
   ["build" ""
-   {"deps.edn.template"  "deps.edn"}]
+   {"deps.edn.template"  "deps.edn"
+    "guardrails.edn.template"  "guardrails.edn"}]
   ["dev" "dev"
    {"mulog_events.clj" "mulog_events.clj"
     "user.clj" "user.clj"}]
