@@ -1,7 +1,8 @@
 ;; ---------------------------------------------------------
 ;; REPL workflow development tools
 ;;
-;; Include development tool libraries vai aliases from practicalli/clojure-cli-config
+;; Include development tool libraries vai aliases from
+;; practicalli/clojure-cli-config
 ;; Start Rich Terminal UI REPL prompt:
 ;; `clojure -M:repl/reloaded`
 ;;
@@ -13,11 +14,14 @@
 (ns user
   "Tools for REPL Driven Development"
   (:require
-   [mulog-events]
-   [com.brunobonacci.mulog :as μ]
-   [portal]
-   [portal.api :as inspect]
-   [clojure.tools.namespace.repl :as namespace]))
+    [mulog-events]
+    [com.brunobonacci.mulog :as μ]
+    [portal]
+    [portal.api :as inspect]
+    [clojure.tools.namespace.repl :as namespace]))
+
+;; (set! *print-meta* true)
+(set! *warn-on-reflection* true)
 
 ;; ---------------------------------------------------------
 ;; Help
@@ -63,13 +67,14 @@
 
 ;; ---------------------------------------------------------
 ;; Mulog event logging
-;; `mulog-publisher` namespace used to launch tap> events to tap-source (portal)
+;; `mulog-publisher` namespace used to launch tap> events to tap-source
+;; (portal)
 ;; `mulog-events` namespace sets mulog global context for all events
 
 ;; Example mulog event message
 (μ/log ::dev-user-ns
-           :message "Example event from user namespace"
-           :ns (ns-publics *ns*))
+       :message "Example event from user namespace"
+       :ns      (ns-publics *ns*))
 ;; ---------------------------------------------------------
 
 ;; ---------------------------------------------------------
@@ -78,7 +83,8 @@
   ;; Open a portal inspector in browser window - light theme
   ;; (inspect/open {:portal.colors/theme :portal.colors/solarized-light})
 
-  (inspect/clear) ; Clear all values in portal window (allows garbage collection)
+  (inspect/clear) ; Clear all values in portal window (allows garbage
+                  ; collection)
 
   (remove-tap #'inspect/submit) ; Remove portal from `tap>` sources
 
