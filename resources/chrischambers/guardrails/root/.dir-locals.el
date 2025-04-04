@@ -1,2 +1,3 @@
 ((clojure-mode . ((cider-preferred-build-tool . clojure-cli)
-                  (cider-clojure-cli-aliases . ":test/env:dev/reloaded"))))
+                  (clojure-guardrails-enabled . t)
+                  (cider-clojure-cli-aliases . ":test/env:dev"))))
