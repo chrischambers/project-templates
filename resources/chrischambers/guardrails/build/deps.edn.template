@@ -3,14 +3,15 @@
         org.clojure/core.match         {:mvn/version "1.1.0"}
         org.clojure/math.combinatorics {:mvn/version "0.3.0"}
         com.brunobonacci/mulog         {:mvn/version "0.9.0"}
-        com.fulcrologic/guardrails     {:mvn/version "1.2.9"}}
+        com.fulcrologic/guardrails     {:mvn/version "1.2.9"}
+        respeced/respeced              {:mvn/version "0.1.2"}}
  :aliases
  {:dev
   {:extra-paths ["test" "dev"]
    :extra-deps
-   {org.clojure/tools.namespace {:mvn/version "1.4.4"}
+   {org.clojure/tools.namespace {:mvn/version "1.5.0"}
     org.clojure/test.check      {:mvn/version "1.1.1"}
-    lambdaisland/kaocha         {:mvn/version "1.88.1376"}
+    lambdaisland/kaocha         {:mvn/version "1.91.1392"}
     kaocha-noyoda/kaocha-noyoda {:mvn/version "2019-06-03"}}
    :jvm-opts ["-XX:-OmitStackTraceInFastThrow" "-Dguardrails.enabled"]}
 
@@ -21,7 +22,7 @@
   :test/run
   {:extra-paths ["test"]
    :extra-deps  {org.clojure/test.check      {:mvn/version "1.1.1"}
-                 lambdaisland/kaocha         {:mvn/version "1.88.1376"}
+                 lambdaisland/kaocha         {:mvn/version "1.91.1392"}
                  kaocha-noyoda/kaocha-noyoda {:mvn/version "2019-06-03"}}
    :main-opts   ["-m" "kaocha.runner"]
    :exec-fn     kaocha.runner/exec-fn
