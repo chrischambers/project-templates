@@ -1,0 +1,2 @@
+{:launchpad/aliases [:dev]
+ :launchpad/main-opts ["--emacs" "--portal"]}
