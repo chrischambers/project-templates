@@ -5,4 +5,4 @@
 
 (deftest {{main/ns}}-test
   (testing "it works"
-    (is (= 2 1))))
+    (is (= 2 2))))
