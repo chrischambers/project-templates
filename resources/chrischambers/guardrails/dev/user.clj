@@ -28,7 +28,6 @@
   (println "(add-lib 'library-name)")
   (println "(add-libs '{domain/library-name {:mvn/version \"v1.2.3\"}})")
   (println "(sync-deps)                ; load dependencies from deps.edn")
-  (println "- deps-* lsp snippets for adding library")
   (println)
   (println "Portal:")
   (println "(portal!)                  ; launch new portal instance")
