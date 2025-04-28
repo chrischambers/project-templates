@@ -71,7 +71,7 @@
 (defn portal!
   "Open a Portal window and register a tap handler for it. The result can be
   treated like an atom."
-  [opts]
+  [& {:as opts}]
   ;; Portal is both an IPersistentMap and an IDeref, which confuses pprint.
   (prefer-method @(jit pp/simple-dispatch)
                  clojure.lang.IPersistentMap
