@@ -1,22 +1,11 @@
-;; ---------------------------------------------------------
-;; REPL workflow development tools
-;;
-;; Include development tool libraries via aliases from
-;; practicalli/clojure-cli-config
-;; Start Rich Terminal UI REPL prompt:
-;; `clojure -M:repl/reloaded`
-;;
-;; Or call clojure jack-in from an editor to start a repl
-;; including the `:dev/reloaded` alias
-;; - alias included in the Emacs `.dir-locals.el` file
-;; ---------------------------------------------------------
-
 (ns user
   "Tools for REPL Driven Development"
   (:require
+   [clojure.pprint         :as pp]
    [clojure.tools.namespace.repl :as namespace]
-   [com.brunobonacci.mulog       :as μ]
-   [mulog-events]))
+   [com.brunobonacci.mulog :as μ]
+   [mulog-events]
+   [portal.api]))
 
 ;; (alter-var-root *print-meta* (constantly true))
 (alter-var-root #'*warn-on-reflection* (constantly true))
@@ -32,22 +21,20 @@
   []
   (println "---------------------------------------------------------")
   (println "Namesapece Management:")
-  (println "(namespace/refresh)            ; refresh all changed namespaces")
-  (println "(namespace/refresh-all)        ; refresh all namespaces")
+  (println "(namespace/refresh)        ; refresh all changed namespaces")
+  (println "(namespace/refresh-all)    ; refresh all namespaces")
   (println)
-  (println "Hotload libraries:             ; Clojure 1.12.x")
+  (println "Hotload libraries:         ; Clojure 1.12.x")
   (println "(add-lib 'library-name)")
   (println "(add-libs '{domain/library-name {:mvn/version \"v1.2.3\"}})")
-  (println "(sync-deps)                    ; load dependencies from deps.edn")
+  (println "(sync-deps)                ; load dependencies from deps.edn")
   (println "- deps-* lsp snippets for adding library")
   (println)
-  (println "Portal Inspector:")
-  (println "- portal started by default, listening to all evaluations")
-  (println "(inspect/clear)                ; clear all values in portal")
-  (println "(remove-tap #'inspect/submit)  ; stop sending to portal")
-  (println "(inspect/close)                ; close portal")
+  (println "Portal:")
+  (println "(portal!)                  ; launch new portal instance")
+  (println "@portal                    ; return current selection from portal")
   (println)
-  (println "(help)                         ; print help text")
+  (println "(help)                     ; print help text")
   (println "---------------------------------------------------------"))
 
 (help)
@@ -55,16 +42,15 @@
 ;; End of Help
 ;; ---------------------------------------------------------
 
-;; ---------------------------------------------------------
-;; Avoid reloading `dev` code
-;; - code in `dev` directory should be evaluated if changed to reload into repl
+;; Avoid reloading `dev` code:
+;; code in `dev` directory should be evaluated if changed to reload into REPL
 (println
  "Set REPL refresh directories to "
  (namespace/set-refresh-dirs "src" "resources"))
 ;; ---------------------------------------------------------
 
 ;; ---------------------------------------------------------
-;; Mulog event logging
+;; Mulog event logging:
 ;; `mulog-publisher` namespace used to launch tap> events to tap-source
 ;; (portal)
 ;; `mulog-events` namespace sets mulog global context for all events
@@ -74,3 +60,30 @@
        :message "Example event from user namespace"
        :ns      (ns-publics *ns*))
 ;; ---------------------------------------------------------
+
+
+(defmacro jit
+  [sym]
+  `(requiring-resolve '~sym))
+
+(def portal (atom nil))
+(def portal-default-options {:theme :portal.colors/material-ui})
+
+(defn portal!
+  "Open a Portal window and register a tap handler for it. The result can be
+  treated like an atom."
+  [opts]
+  ;; Portal is both an IPersistentMap and an IDeref, which confuses pprint.
+  (prefer-method @(jit pp/simple-dispatch)
+                 clojure.lang.IPersistentMap
+                 clojure.lang.IDeref)
+  (let [options (merge portal-default-options opts)
+        p       ((jit portal.api/open) @portal options)]
+    (reset! portal p)
+    (add-tap (jit portal.api/submit))
+    p))
+
+(comment
+  (portal!)
+  ;; -------------------------------------------------------------------------
+)
