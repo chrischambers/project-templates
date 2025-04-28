@@ -1,7 +1,7 @@
 ;; ---------------------------------------------------------
 ;; REPL workflow development tools
 ;;
-;; Include development tool libraries vai aliases from
+;; Include development tool libraries via aliases from
 ;; practicalli/clojure-cli-config
 ;; Start Rich Terminal UI REPL prompt:
 ;; `clojure -M:repl/reloaded`
@@ -14,12 +14,12 @@
 (ns user
   "Tools for REPL Driven Development"
   (:require
-    [mulog-events]
-    [com.brunobonacci.mulog :as μ]
-    [clojure.tools.namespace.repl :as namespace]))
+   [clojure.tools.namespace.repl :as namespace]
+   [com.brunobonacci.mulog       :as μ]
+   [mulog-events]))
 
-;; (set! *print-meta* true)
-(set! *warn-on-reflection* true)
+;; (alter-var-root *print-meta* (constantly true))
+(alter-var-root #'*warn-on-reflection* (constantly true))
 
 ;; ---------------------------------------------------------
 ;; Help
