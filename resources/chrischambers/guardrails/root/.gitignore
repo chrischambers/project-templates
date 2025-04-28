@@ -1,9 +1,10 @@
 # -*- mode: gitignore; -*-
-# Editor files:
+# Editor:
 \#*\#
 .\#*
+.lsp
 
-# Clojure/Java Specific
+# Clojure/Java:
 pom.xml
 pom.xml.asc
 *.jar
@@ -14,6 +15,8 @@ pom.xml.asc
 /checkouts/
 .nrepl-port
 .cpcache/
+.clj-kondo/
+deps.local.edn
 
-# Mac/OSX
+# Mac/OSX:
 .DS_Store
