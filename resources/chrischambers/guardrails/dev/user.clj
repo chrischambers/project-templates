@@ -7,7 +7,7 @@
    [mulog-events]
    [portal.api]))
 
-;; (alter-var-root *print-meta* (constantly true))
+;; (alter-var-root #'*print-meta* (constantly true))
 (alter-var-root #'*warn-on-reflection* (constantly true))
 
 ;; ---------------------------------------------------------
