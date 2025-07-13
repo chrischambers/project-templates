@@ -1,5 +1,5 @@
 (ns {{top/ns}}.{{main/ns}}
   (:require
-    [clojure.spec.alpha :as s]
-    [com.brunobonacci.mulog :as μ]
-    [com.fulcrologic.guardrails.core :refer [=> >def >defn ?]]))
+   [clojure.spec.alpha :as     s]
+   [com.brunobonacci.mulog :as μ]
+   [com.fulcrologic.guardrails.core :refer [=> >def >defn ?]]))

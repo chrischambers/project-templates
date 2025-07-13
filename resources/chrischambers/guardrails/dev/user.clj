@@ -31,7 +31,7 @@
   (println)
   (println "Portal:")
   (println "(portal!)                  ; launch new portal instance")
-  (println "@portal                    ; return current selection from portal")
+  (println "@@portal                   ; return current selection from portal")
   (println)
   (println "(help)                     ; print help text")
   (println "---------------------------------------------------------"))
