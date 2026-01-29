@@ -1,17 +1,18 @@
 {:paths ["src" "resources"]
- :deps {com.brunobonacci/mulog         {:mvn/version "0.9.0"}
-        com.fulcrologic/guardrails     {:mvn/version "1.2.9"}
-        dev.weavejester/medley         {:mvn/version "1.8.1"}
+ :deps {better-cond/better-cond        {:mvn/version "2.1.5"}
+        com.brunobonacci/mulog         {:mvn/version "0.9.0"}
+        com.fulcrologic/guardrails     {:mvn/version "1.2.14"}
+        dev.weavejester/medley         {:mvn/version "1.9.0"}
         org.clojure/clojure            {:mvn/version "{{clojure-version}}"}
         org.clojure/math.numeric-tower {:mvn/version "0.1.0"}}
  :aliases
  {:dev
   {:extra-paths ["test" "dev"]
    :extra-deps
-   {djblue/portal               {:mvn/version "0.59.0"}
+   {djblue/portal               {:mvn/version "0.62.0"}
     kaocha-noyoda/kaocha-noyoda {:mvn/version "2019-06-03"}
     lambdaisland/kaocha         {:mvn/version "1.91.1392"}
-    org.clojure/test.check      {:mvn/version "1.1.1"}
+    org.clojure/test.check      {:mvn/version "1.1.2"}
     org.clojure/tools.namespace {:mvn/version "1.5.0"}
     respeced/respeced           {:mvn/version "0.1.2"}}
    :jvm-opts ["-XX:-OmitStackTraceInFastThrow"]}
@@ -25,12 +26,12 @@
   {:classpath-overrides
    {org.clojure/clojure nil}
    :extra-deps
-   {com.github.flow-storm/clojure        {:mvn/version "1.12.0-9"}
-    com.github.flow-storm/flow-storm-dbg {:mvn/version "4.4.1"}}}
+   {com.github.flow-storm/clojure        {:mvn/version "1.12.3-4"}
+    com.github.flow-storm/flow-storm-dbg {:mvn/version "4.5.9"}}}
 
   :flowstorm
   {:extra-deps
-   {com.github.flow-storm/flow-storm-dbg {:mvn/version "4.4.1"}}}
+   {com.github.flow-storm/flow-storm-dbg {:mvn/version "4.5.9"}}}
 
 
   ;; Test runner - local and CI call with :watch? true to start file
@@ -39,7 +40,7 @@
   {:extra-paths ["test"]
    :extra-deps  {kaocha-noyoda/kaocha-noyoda {:mvn/version "2019-06-03"}
                  lambdaisland/kaocha         {:mvn/version "1.91.1392"}
-                 org.clojure/test.check      {:mvn/version "1.1.1"}}
+                 org.clojure/test.check      {:mvn/version "1.1.2"}}
    :main-opts   ["-m" "kaocha.runner"]
    :exec-fn     kaocha.runner/exec-fn
    :exec-args   {:randomize? false
