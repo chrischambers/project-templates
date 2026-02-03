@@ -1,48 +1,25 @@
-# ------------------------
-# Clojure Project Git Ignore file patterns
-# 
-# Ignore all except patterns starting with !
-# Add comments on separate lines, not same line as pattern
-# ------------------------
+# -*- mode: gitignore; -*-
+# Editor:
+\#*\#
+.\#*
+.lsp
 
-# ------------------------
-# Ignore everthing in root directory
-/*
+# Clojure/Java:
+pom.xml
+pom.xml.asc
+*.jar
+*.class
+/lib/
+/classes/
+/target/
+/checkouts/
+.nrepl-port
+.cpcache/
+.clj-kondo/
+deps.local.edn
 
-# ------------------------
-# Common project files
-!CHANGELOG.md
-!README.md
-!LICENSE
+# Mac/OSX:
+.DS_Store
 
-# ------------------------
-# Include Clojure project & config
-!build.clj
-!deps.edn
-!pom.xml
-!dev/
-!docs/
-!resources/
-!src/
-!test/
-
-# ------------------------
-# Include Clojure tools
-!.cljstyle
-!.dir-locals.el
-!compose.yaml
-!Dockerfile
-!.dockerignore
-!Makefile
-!tests.edn
-
-# ------------------------
-# Include Git & CI workflow
-!.gitattributes
-!.gitignore
-!.github/
-
-# ------------------------
-# Include ClojureScript Figwheel
-!figwheel-main.edn
-!*.cljs.edn
+# Misc
+.direnv/

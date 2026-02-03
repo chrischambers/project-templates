@@ -20,3 +20,6 @@ deps.local.edn
 
 # Mac/OSX:
 .DS_Store
+
+# Misc
+.direnv/
