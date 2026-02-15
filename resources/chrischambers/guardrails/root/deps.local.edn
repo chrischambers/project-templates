@@ -1,3 +1,4 @@
-{:launchpad/aliases [:dev :guardrails]
- :launchpad/options {:emacs  true
-                     :portal true}}
+{:launchpad/aliases [:dev :guardrails :flowstorm]
+ :launchpad/options {:emacs      true
+                     :middleware [:flow-storm.nrepl.middleware/wrap-flow-storm]
+                     :portal     true}}
