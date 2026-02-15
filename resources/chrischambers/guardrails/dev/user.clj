@@ -20,7 +20,7 @@
 (defn help
   []
   (println "---------------------------------------------------------")
-  (println "Namesapece Management:")
+  (println "Namespace Management:")
   (println "(namespace/refresh)        ; refresh all changed namespaces")
   (println "(namespace/refresh-all)    ; refresh all namespaces")
   (println)
